@@ -225,7 +225,7 @@ namespace Zilean
             {
                 Q.Cast(target.ServerPosition);
             }
-            if (W.IsReady() && target.HasBuff("ZileanQEnemyBomb") && harassMenu["Harass.W"].Cast<CheckBox>().CurrentValue && Player.Instance.Mana > QMANA + RMANA)
+            if (W.IsReady() && target.HasBuff("ZileanQEnemyBomb") && Player.Instance.Distance(target.ServerPosition) <= 850 && harassMenu["Harass.W"].Cast<CheckBox>().CurrentValue && Player.Instance.Mana > QMANA + RMANA)
             {
                 W.Cast();
             }
