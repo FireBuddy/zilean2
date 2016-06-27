@@ -217,11 +217,7 @@ namespace Zilean
                  {
                     
                     Q.Cast(Minion.ServerPosition);
-                    if(Q.IsOnCooldown)
-                    {
-                        W.Cast(Player.Instance)
-                        Core.DelayAction( () => Q.Cast(Minion.ServerPosition), 500);
-                    }
+
                  }
 
                 }
