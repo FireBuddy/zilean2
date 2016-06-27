@@ -217,7 +217,7 @@ namespace Zilean
             {
                 E.Cast(target);
             }
-            var Minions = EntityManager.MinionsAndMonsters.GetLaneMinions(EntityManager.UnitTeam.Both,sender.ServerPosition, 150);
+            var Minions = EntityManager.MinionsAndMonsters.GetLaneMinions(EntityManager.UnitTeam.Both,target.ServerPosition, 150);
             foreach (var Minion in Minions)
             if(Player.Instance.Distance(Minion.ServerPosition) <= 900)
             {
