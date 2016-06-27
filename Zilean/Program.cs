@@ -95,7 +95,7 @@ namespace Zilean
             }
             if (Orbwalker.ActiveModesFlags.HasFlag(Orbwalker.ActiveModes.Flee))
             {
-                Flee1();
+                 LaneClear1();
             }
         }
         static void Flee1()
