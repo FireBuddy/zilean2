@@ -119,7 +119,7 @@ namespace Zilean
                  foreach (var Minion in Minions)
                  if(Player.Instance.Distance(Minion.ServerPosition) <= 900)
                  {
-                    Orbwalker.DisableMovement = true;
+                    
                     Q.Cast(Minion.ServerPosition);
                  }
 
