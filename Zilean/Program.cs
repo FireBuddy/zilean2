@@ -113,7 +113,7 @@ namespace Zilean
 
             }
             CurrentTarget = TargetSelector.GetTarget(Q.Range + 200, DamageType.Magical);
-            if (sender == CurrentTarget && !sender.IsDashing() && sender.Type == GameObjectType.AIHeroClient && sender.IsValidTarget(Q.Range + 200) && Q.IsReady()&& W.IsReady() && sender.IsEnemy)
+            if (sender == CurrentTarget && !sender.IsDashing() && sender.Type == GameObjectType.AIHeroClient && sender.IsValidTarget(Q.Range + 200) && Q.IsReady() && W.IsReady() && sender.IsEnemy)
             {
                 {
                  var Minions = EntityManager.MinionsAndMonsters.GetLaneMinions(EntityManager.UnitTeam.Both,sender.ServerPosition, 250);
