@@ -118,7 +118,7 @@ namespace Zilean
                 {
                  var Minions = EntityManager.MinionsAndMonsters.GetLaneMinions(EntityManager.UnitTeam.Both,sender.ServerPosition, 250);
                  foreach (var Minion in Minions)
-                 if(Player.Distance(Minion.ServerPosition) <= 900)
+                 if(Player.Instance.Distance(Minion.ServerPosition) <= 900)
                  {
                     Orbwalker.DisableMovement = true;
                     Q.Cast(Minion.ServerPosition);
