@@ -17,6 +17,7 @@ namespace Zilean
         static Menu Menu;
         static Menu comboMenu, harassMenu, clearMenu,miscMenu;
         static Spell.Targeted E, R;
+        public static AIHeroClient CurrentTarget;
         static Spell.Skillshot Q;
         static Spell.Active W;
         static float QMANA, WMANA, EMANA, RMANA;
@@ -35,6 +36,7 @@ namespace Zilean
             E = new Spell.Targeted(SpellSlot.E, 550);
             R = new Spell.Targeted(SpellSlot.R, 900);
             Game.OnUpdate += Game_OnUpdate;
+            Obj_AI_Base.OnBasicAttack += Obj_AI_Base_OnBasicAttack;
             Obj_AI_Base.OnSpellCast += Obj_AI_Base_OnDoCast;
             GameObject.OnDelete += MissileClient_OnDelete;
             Obj_AI_Base.OnProcessSpellCast += Obj_AI_Base_OnProcessSpellCast;
@@ -92,6 +94,46 @@ namespace Zilean
                 LaneClear1();
             }
         }
+        private static void Obj_AI_Base_OnBasicAttack(Obj_AI_Base sender, GameObjectProcessSpellCastEventArgs args)
+        {
+            var flags = Orbwalker.ActiveModesFlags;
+            if (sender == null || (!flags.HasFlag(Orbwalker.ActiveModes.Harass)))
+            {
+               return;
+            }
+            CurrentTarget = TargetSelector.GetTarget(Q.Range, DamageType.Magical);
+            if (sender == CurrentTarget && !sender.IsDashing() && sender.Type == GameObjectType.AIHeroClient && sender.IsValidTarget(Q.Range) &&Q.IsReady() && sender.IsEnemy)
+            {
+                
+                
+                {
+                 Q.Cast(CurrentTarget.ServerPosition + 20);
+                 Core.DelayAction( () => Spells.Q.Cast(sender), 500);
+                }
+
+            }
+            CurrentTarget = TargetSelector.GetTarget(Q.Range + 200, DamageType.Magical);
+            if (sender == CurrentTarget && !sender.IsDashing() && sender.Type == GameObjectType.AIHeroClient && sender.IsValidTarget(Q.Range + 200) &&=Q.IsReady()&& W.IsReady() && sender.IsEnemy)
+            {
+                {
+                 var Minions = EntityManager.MinionsAndMonsters.GetLaneMinions(EntityManager.UnitTeam.Both,sender.ServerPosition, 250);
+                 foreach (var Minion in Minions)
+                 if(_Player.Distance(Minion.ServerPosition) <= 900)
+                 {
+                    Orbwalker.DisableMovement = true;
+                    Q.Cast(Minion.ServerPosition);
+                    Core.DelayAction( () => Q.Cast(Minion.ServerPosition), 500);
+                    Orbwalker.DisableMovement = false;
+
+                 }
+
+                }
+                
+
+
+            }
+
+}
         static void BeforeAttack(AttackableUnit target, Orbwalker.PreAttackArgs args)
         {
             if (args.Target.IsEnemy && !args.Target.IsMe && !args.Target.IsZombie && args.Target.Distance(Player.Instance) >= 450 && args.Target.Health > Damage.GetAutoAttackDamage(Player.Instance,(Obj_AI_Base) args.Target) && Orbwalker.ActiveModesFlags.HasFlag(Orbwalker.ActiveModes.Combo) && (Q.IsReady() || W.IsReady()))
