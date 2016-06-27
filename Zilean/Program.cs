@@ -207,7 +207,7 @@ namespace Zilean
             {
                 E.Cast(target);
             }
-            CurrentTarget = TargetSelector.GetTarget(Q.Range + 150, DamageType.Magical);
+            var CurrentTarget = TargetSelector.GetTarget(Q.Range + 150, DamageType.Magical);
             if (sender == CurrentTarget && !sender.IsDashing() && sender.Type == GameObjectType.AIHeroClient && sender.IsValidTarget(Q.Range + 150) && Q.IsReady() && W.IsReady() && sender.IsEnemy)
             {
                 {
