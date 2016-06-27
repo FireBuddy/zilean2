@@ -108,7 +108,7 @@ namespace Zilean
                 
                 {
                  Q.Cast(CurrentTarget.ServerPosition + 20);
-                 Core.DelayAction( () => if (W.IsReady() && CurrentTarget.HasBuff("ZileanQEnemyBomb")) Q.Cast(sender), 500);
+                 Core.DelayAction( () => (if(W.IsReady() && CurrentTarget.HasBuff("ZileanQEnemyBomb")) Q.Cast(sender)), 500);
                 }
 
             }
