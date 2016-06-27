@@ -98,7 +98,7 @@ namespace Zilean
                 Flee1();
             }
         }
-        public static void Flee1()
+        static void Flee1()
         {
             if (E.IsReady())
                 E.Cast(Player);
