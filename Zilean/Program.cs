@@ -135,13 +135,13 @@ namespace Zilean
                 }
 
             }
-            CurrentTarget = TargetSelector.GetTarget(Q.Range + 150, DamageType.Magical);
+            CurrentTarget = TargetSelector.GetTarget(Q.Range + 110, DamageType.Magical);
             if (sender == CurrentTarget && !sender.IsDashing() && sender.Type == GameObjectType.AIHeroClient && sender.IsValidTarget(Q.Range + 150) && Q.IsReady() && W.IsReady() && sender.IsEnemy)
             {
                 {
-                 var Minions = EntityManager.MinionsAndMonsters.GetLaneMinions(EntityManager.UnitTeam.Enemy,sender.ServerPosition, 150);
+                 var Minions = EntityManager.MinionsAndMonsters.GetLaneMinions(EntityManager.UnitTeam.Enemy,sender.ServerPosition, 110);
                  foreach (var Minion in Minions)
-                 if(Player.Instance.Distance(Minion.ServerPosition) <= 900)
+                 if(Player.Instance.Distance(Minion.ServerPosition) <= 110)
                  {
                     
                     Q.Cast(Minion.ServerPosition);
@@ -241,7 +241,7 @@ namespace Zilean
             {
                 E.Cast(target);
             }
-            var Minions = EntityManager.MinionsAndMonsters.GetLaneMinions(EntityManager.UnitTeam.Both,target.ServerPosition, 150);
+            var Minions = EntityManager.MinionsAndMonsters.GetLaneMinions(EntityManager.UnitTeam.Both,target.ServerPosition, 300);
             foreach (var Minion in Minions)
             if(Player.Instance.Distance(Minion.ServerPosition) <= 900 && Minion.HasBuff("ZileanQEnemyBomb"))
             {
