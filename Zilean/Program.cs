@@ -169,10 +169,10 @@ namespace Zilean
         static void Combo1()
         {
             var CurrentTarget = TargetSelector.GetTarget(Q.Range + 150, DamageType.Magical);
-            if (sender == CurrentTarget && !sender.IsDashing() && sender.Type == GameObjectType.AIHeroClient && sender.IsValidTarget(Q.Range + 150) && Q.IsReady() && W.IsReady() && sender.IsEnemy)
+            if (CurrentTarget != null && ! CurrentTarget.IsDashing() &&  CurrentTarget.Type == GameObjectType.AIHeroClient && CurrentTarget.IsValidTarget(Q.Range + 150) && Q.IsReady() && W.IsReady() &&  CurrentTarget.IsEnemy)
             {
                 {
-                 var Minions = EntityManager.MinionsAndMonsters.GetLaneMinions(EntityManager.UnitTeam.Enemy,sender.ServerPosition, 150);
+                 var Minions = EntityManager.MinionsAndMonsters.GetLaneMinions(EntityManager.UnitTeam.Enemy, CurrentTarget.ServerPosition, 150);
                  foreach (var Minion in Minions)
                  if(Player.Instance.Distance(Minion.ServerPosition) <= 150)
                  {
