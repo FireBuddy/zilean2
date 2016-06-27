@@ -95,10 +95,14 @@ namespace Zilean
             }
             if (Orbwalker.ActiveModesFlags.HasFlag(Orbwalker.ActiveModes.Flee))
             {
-                 LaneClear1();
+                 Flee1();
             }
         }
-
+        
+        static void Flee1()
+        {
+            
+        }
         private static void Obj_AI_Base_OnBasicAttack(Obj_AI_Base sender, GameObjectProcessSpellCastEventArgs args)
         {
             var flags = Orbwalker.ActiveModesFlags;
