@@ -113,12 +113,12 @@ namespace Zilean
 
             }
             CurrentTarget = TargetSelector.GetTarget(Q.Range + 200, DamageType.Magical);
-            if (sender == CurrentTarget && !sender.IsDashing() && sender.Type == GameObjectType.AIHeroClient && sender.IsValidTarget(Q.Range + 200) &&=Q.IsReady()&& W.IsReady() && sender.IsEnemy)
+            if (sender == CurrentTarget && !sender.IsDashing() && sender.Type == GameObjectType.AIHeroClient && sender.IsValidTarget(Q.Range + 200) && Q.IsReady()&& W.IsReady() && sender.IsEnemy)
             {
                 {
                  var Minions = EntityManager.MinionsAndMonsters.GetLaneMinions(EntityManager.UnitTeam.Both,sender.ServerPosition, 250);
                  foreach (var Minion in Minions)
-                 if(Player.Instance.Distance(Minion.ServerPosition) <= 900)
+                 if(Player.Distance(Minion.ServerPosition) <= 900)
                  {
                     Orbwalker.DisableMovement = true;
                     Q.Cast(Minion.ServerPosition);
