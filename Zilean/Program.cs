@@ -207,6 +207,28 @@ namespace Zilean
             {
                 E.Cast(target);
             }
+            CurrentTarget = TargetSelector.GetTarget(Q.Range + 150, DamageType.Magical);
+            if (sender == CurrentTarget && !sender.IsDashing() && sender.Type == GameObjectType.AIHeroClient && sender.IsValidTarget(Q.Range + 150) && Q.IsReady() && W.IsReady() && sender.IsEnemy)
+            {
+                {
+                 var Minions = EntityManager.MinionsAndMonsters.GetLaneMinions(EntityManager.UnitTeam.Enemy,sender.ServerPosition, 150);
+                 foreach (var Minion in Minions)
+                 if(Player.Instance.Distance(Minion.ServerPosition) <= 150)
+                 {
+                    
+                    Q.Cast(Minion.ServerPosition);
+                    if(Q.IsOnCooldown)
+                    {
+                        W.Cast(Player.Instance)
+                        Core.DelayAction( () => Q.Cast(Minion.ServerPosition), 500);
+                    }
+                 }
+
+                }
+                
+
+
+            }
         }
         static void Harass1()
         {
