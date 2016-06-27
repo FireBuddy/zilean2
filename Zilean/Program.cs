@@ -208,6 +208,7 @@ namespace Zilean
             if (W.IsReady() && target.HasBuff("ZileanQEnemyBomb") && comboMenu["Combo.W"].Cast<CheckBox>().CurrentValue && Player.Instance.Mana > QMANA + RMANA )
             {
                 W.Cast();
+                Q.Cast(predQ.CastPosition);
             }
             if (W.IsReady() && !Q.IsReady() && !E.IsReady() && Player.Instance.Mana > WMANA + RMANA)
             {
