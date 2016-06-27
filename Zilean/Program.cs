@@ -98,12 +98,7 @@ namespace Zilean
                  LaneClear1();
             }
         }
-        static void Flee1()
-        {
-            if (E.IsReady())
-                E.Cast(Player);
 
-        }
         private static void Obj_AI_Base_OnBasicAttack(Obj_AI_Base sender, GameObjectProcessSpellCastEventArgs args)
         {
             var flags = Orbwalker.ActiveModesFlags;
