@@ -197,10 +197,10 @@ namespace Zilean
                 return;
             }
             var predQ = Q.GetPrediction(target);
-            if (Q.IsReady() && predQ.HitChance >= HitChance.Medium && CanMove(target) && harassMenu["Harass.Q"].Cast<CheckBox>().CurrentValue && Player.Instance.Mana > QMANA + RMANA)
-            {
-                Q.Cast(predQ.CastPosition);
-            }
+            //if (Q.IsReady() && predQ.HitChance >= HitChance.Medium && CanMove(target) && harassMenu["Harass.Q"].Cast<CheckBox>().CurrentValue && Player.Instance.Mana > QMANA + RMANA)
+           // {
+          //      Q.Cast(predQ.CastPosition);
+          //  }
             if (Q.IsReady() && !CanMove(target) && harassMenu["Harass.Q"].Cast<CheckBox>().CurrentValue && Player.Instance.Mana > QMANA + RMANA)
             {
                 Q.Cast(target.ServerPosition);
