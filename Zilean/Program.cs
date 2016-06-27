@@ -30,6 +30,7 @@ namespace Zilean
         }
         static void Game_OnLoad (EventArgs args)
         {
+            Gapcloser.OnGapcloser += OnGapCloser;
             Q = new Spell.Skillshot(SpellSlot.Q, 900, SkillShotType.Circular,300, 2000, 150);
             Q.AllowedCollisionCount = int.MaxValue;
             W = new Spell.Active(SpellSlot.W);
@@ -99,6 +100,17 @@ namespace Zilean
             }
         }
         
+        private static void OnGapCloser(Obj_AI_Base sender, Gapcloser.GapcloserEventArgs args)
+        {
+            if (sender.IsEnemy &&
+                sender is AIHeroClient &&
+                sender.Distance(Player.Instance) <= E.Range &&
+                E.IsReady())
+                
+            {
+                E.Cast(Player.Instance);
+            }
+        }
         static void Flee1()
         {
          if(E.IsReady())
