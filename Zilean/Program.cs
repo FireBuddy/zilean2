@@ -219,9 +219,9 @@ namespace Zilean
             }
             var Minions = EntityManager.MinionsAndMonsters.GetLaneMinions(EntityManager.UnitTeam.Both,target.ServerPosition, 150);
             foreach (var Minion in Minions)
-            if(Player.Instance.Distance(Minion.ServerPosition) <= 900)
+            if(Player.Instance.Distance(Minion.ServerPosition) <= 900 && Minion.HasBuff("ZileanQEnemyBomb"))
             {
-                Minion.HasBuff("ZileanQEnemyBomb")
+                
                 Q.Cast(Minion.ServerPosition);
             }
         }
