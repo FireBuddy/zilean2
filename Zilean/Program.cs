@@ -132,8 +132,8 @@ namespace Zilean
 
 
             }
-
-}
+    
+        }
         static void BeforeAttack(AttackableUnit target, Orbwalker.PreAttackArgs args)
         {
             if (args.Target.IsEnemy && !args.Target.IsMe && !args.Target.IsZombie && args.Target.Distance(Player.Instance) >= 450 && args.Target.Health > Damage.GetAutoAttackDamage(Player.Instance,(Obj_AI_Base) args.Target) && Orbwalker.ActiveModesFlags.HasFlag(Orbwalker.ActiveModes.Combo) && (Q.IsReady() || W.IsReady()))
