@@ -103,7 +103,7 @@ namespace Zilean
         {
          if(E.IsReady())
          {
-             E.Cast(Player)
+             E.Cast(Player);
          }
         }
         private static void Obj_AI_Base_OnBasicAttack(Obj_AI_Base sender, GameObjectProcessSpellCastEventArgs args)
