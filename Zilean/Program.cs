@@ -208,28 +208,7 @@ namespace Zilean
         }
         static void Combo1()
         {
-            var CurrentTarget = TargetSelector.GetTarget(Q.Range + 150, DamageType.Magical);
-            if (CurrentTarget != null && ! CurrentTarget.IsDashing() &&  CurrentTarget.Type == GameObjectType.AIHeroClient && CurrentTarget.IsValidTarget(Q.Range + 150) && Q.IsReady() && W.IsReady() &&  CurrentTarget.IsEnemy)
-            {
-                {
-                 var Minions = EntityManager.MinionsAndMonsters.GetLaneMinions(EntityManager.UnitTeam.Enemy, CurrentTarget.ServerPosition, 150);
-                 foreach (var Minion in Minions)
-                 if(Player.Instance.Distance(Minion.ServerPosition) <= 150)
-                 {
-                    
-                    Q.Cast(Minion.ServerPosition);
-                    if(Q.IsOnCooldown)
-                    {
-                        W.Cast(Player.Instance);
-                        Core.DelayAction( () => Q.Cast(Minion.ServerPosition), 500);
-                    }
-                 }
 
-                }
-                
-
-
-            }
             var target = TargetSelector.GetTarget(Q.Range, DamageType.Magical);
             var targetE = TargetSelector.GetTarget(E.Range, DamageType.Magical);
             if (target == null || !target.IsValid)
