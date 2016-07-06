@@ -164,7 +164,8 @@ namespace Zilean
                         {
                             Chat.Print("Pos Cast:"+args.SData.Name);
                             Q.Cast(args.End.Position);
-                        }    
+                        }  
+                    }    
                 } 
             } 
         }
