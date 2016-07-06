@@ -135,6 +135,7 @@ namespace Zilean
                 {
                    Chat.Print("Receiving damage:"+args.SData.Name);
                     E.Cast(Player.Instance);
+                    return;
 
 
                 }
@@ -143,12 +144,14 @@ namespace Zilean
 
                     Chat.Print("Not Receiving damage:" +args.SData.Name);
                     Q.Cast(sender.ServerPosition);
+                    return;
 
                 }                
                 if (args.Target != null)
                 {
                     Chat.Print("targetspell:"+args.SData.Name);
                     Q.Cast(sender.ServerPosition);
+                    return;
                     
 
                 }
