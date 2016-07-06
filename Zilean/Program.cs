@@ -66,7 +66,7 @@ namespace Zilean
             miscMenu.Add("AutoR",  new CheckBox("Auto Ult"));
             miscMenu.Add("Onprocess.Q", new CheckBox("Use when Q"));
             miscMenu.Add("End.Q", new CheckBox("End Q"));
-            miscMenu.Add("Onprocess.W", new CheckBox("Use when Q"));
+            miscMenu.Add("Onprocess.W", new CheckBox("Use when W"));
             miscMenu.Add("End.W", new CheckBox("End W"));
             miscMenu.Add("Onprocess.E", new CheckBox("Use when E"));
             miscMenu.Add("End.E", new CheckBox("End E"));
