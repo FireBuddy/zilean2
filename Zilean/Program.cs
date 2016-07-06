@@ -153,10 +153,7 @@ namespace Zilean
                 }
                 if (args.End.Distance(Player.Instance.Position) >= 100)checkbox
                 {
-                    if (args.Slot == SpellSlot.Q && miscMenu["Onprocess.Q"].Cast<CheckBox>().CurrentValue)
-                    {
 
-                    }
                 } 
             } 
         }
