@@ -155,20 +155,8 @@ namespace Zilean
                 {
                     if (args.Slot == SpellSlot.Q && miscMenu["Onprocess.Q"].Cast<CheckBox>().CurrentValue)
                     {
-                        
-                        if (miscMenu["End.Q"].Cast<CheckBox>().CurrentValue)
-                            {
-                                Chat.Print("End Cast:" +args.SData.Name);
-                                Q.Cast(sender.ServerPosition);
-                            }
-                        else 
-                                                        
-                            {
-                                Chat.Print("Pos Cast:" +args.SData.Name);
-                                Q.Cast(sender.ServerPosition);
-                            }
-                    }
 
+                    }
                 } 
             } 
         }
