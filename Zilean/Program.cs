@@ -155,7 +155,7 @@ namespace Zilean
                 {
                     if (args.Slot == SpellSlot.Q && miscMenu["Onprocess.Q"].Cast<CheckBox>().CurrentValue)
                     {
-                        if (miscMenu["Onprocess.Q"].Cast<CheckBox>().CurrentValue)
+                        if (!miscMenu["End.Q"].Cast<CheckBox>().CurrentValue)
                         {
                             Chat.Print("Pos Cast:"+args.SData.Name);
                             Q.Cast(sender.ServerPosition);
@@ -163,7 +163,7 @@ namespace Zilean
                         else 
                         {
                             Chat.Print("Pos Cast:"+args.SData.Name);
-                            Q.Cast(args.End);
+                            Q.Cast(args.End.ServerPosition);
                         }    
                 } 
             } 
