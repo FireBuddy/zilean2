@@ -131,7 +131,7 @@ namespace Zilean
             CurrentTarget = TargetSelector.GetTarget(Q.Range, DamageType.Magical);
             if (Q.IsReady() && sender.IsValidTarget(900) && !sender.IsInvulnerable && args.Target != CurrentTarget && !sender.IsDashing() && sender == CurrentTarget)
             {
-                if (args.Target == null && args.End.Distance(Player.Instance.Position) <= 100)
+                if (args.End.Distance(Player.Instance.Position) <= 100)
                 {
                    Chat.Print("Receiving damage:"+args.SData.Name);
                     E.Cast(Player.Instance);
@@ -146,17 +146,7 @@ namespace Zilean
                     Q.Cast(sender.ServerPosition);
                     return;
 
-                }                
-                if (args.Target != null)
-                {
-                    Chat.Print("targetspell:"+args.SData.Name);
-                    Q.Cast(sender.ServerPosition);
-                    return;
-                    
-
-                }
-
-
+                } 
             } 
         }
         private static void Obj_AI_Base_OnBasicAttack(Obj_AI_Base sender, GameObjectProcessSpellCastEventArgs args)
