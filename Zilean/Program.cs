@@ -115,8 +115,8 @@ namespace Zilean
                 {
 
                     Chat.Print("GapCloser:" +args.SData.Name);
-                    Q.Cast(sender.Instance);
-                    return;
+                    E.Cast(sender);
+                    
 
                 } 
                 
