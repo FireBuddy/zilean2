@@ -165,8 +165,48 @@ namespace Zilean
                             Chat.Print("Pos Cast:"+args.SData.Name);
                             Q.Cast(args.End);
                         }  
-                    }    
+                    }
+                    if (args.Slot == SpellSlot.W && miscMenu["Onprocess.W"].Cast<CheckBox>().CurrentValue)
+                    {
+                        if (!miscMenu["End.W"].Cast<CheckBox>().CurrentValue)
+                        {
+                            Chat.Print("Pos Cast:"+args.SData.Name);
+                            Q.Cast(sender.ServerPosition);
+                        }
+                        else 
+                        {
+                            Chat.Print("Pos Cast:"+args.SData.Name);
+                            Q.Cast(args.End);
+                        }  
+                    }
+                    if (args.Slot == SpellSlot.E && miscMenu["Onprocess.E"].Cast<CheckBox>().CurrentValue)
+                    {
+                        if (!miscMenu["End.E"].Cast<CheckBox>().CurrentValue)
+                        {
+                            Chat.Print("Pos Cast:"+args.SData.Name);
+                            Q.Cast(sender.ServerPosition);
+                        }
+                        else 
+                        {
+                            Chat.Print("Pos Cast:"+args.SData.Name);
+                            Q.Cast(args.End);
+                        }  
+                    } 
+                    if (args.Slot == SpellSlot.R && miscMenu["Onprocess.R"].Cast<CheckBox>().CurrentValue)
+                    {
+                        if (!miscMenu["End.R"].Cast<CheckBox>().CurrentValue)
+                        {
+                            Chat.Print("Pos Cast:"+args.SData.Name);
+                            Q.Cast(sender.ServerPosition);
+                        }
+                        else 
+                        {
+                            Chat.Print("Pos Cast:"+args.SData.Name);
+                            Q.Cast(args.End);
+                        }  
+                    }  
                 } 
+
             } 
         }
         private static void Obj_AI_Base_OnBasicAttack(Obj_AI_Base sender, GameObjectProcessSpellCastEventArgs args)
