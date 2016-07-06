@@ -131,7 +131,7 @@ namespace Zilean
             CurrentTarget = TargetSelector.GetTarget(Q.Range, DamageType.Magical);
             if (Q.IsReady() && sender.IsValidTarget(900) && !sender.IsInvulnerable && args.Target != CurrentTarget && !sender.IsDashing() && sender == CurrentTarget)
             {
-                if (args.End.Distance(Player.Instance.Position) <= 100)
+                if (args.Target == null && args.End.Distance(Player.Instance.Position) <= 100)
                 {
                    Chat.Print("Receiving damage:"+args.SData.Name);
                     E.Cast(Player.Instance);
