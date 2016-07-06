@@ -151,9 +151,20 @@ namespace Zilean
 
 
                 }
-                if (args.End.Distance(Player.Instance.Position) >= 100 && args.Slot == SpellSlot.Q)
+                if (args.End.Distance(Player.Instance.Position) >= 100 )
                 {
-
+                    if (args.Slot == SpellSlot.Q && miscMenu["Onprocess.Q"].Cast<CheckBox>().CurrentValue)
+                    {
+                        if (miscMenu["Onprocess.Q"].Cast<CheckBox>().CurrentValue)
+                        {
+                            Chat.Print("Pos Cast:"+args.SData.Name);
+                            Q.Cast(sender.ServerPosition);
+                        }
+                        else 
+                        {
+                            Chat.Print("Pos Cast:"+args.SData.Name);
+                            Q.Cast(args.End);
+                        }    
                 } 
             } 
         }
