@@ -163,7 +163,7 @@ namespace Zilean
                         else 
                         {
                             Chat.Print("Pos Cast:"+args.SData.Name);
-                            Q.Cast(args.End.ServerPosition);
+                            Q.Cast(args.End.Position);
                         }    
                 } 
             } 
