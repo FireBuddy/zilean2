@@ -114,7 +114,8 @@ namespace Zilean
                 if (args.End.Distance(Player.Instance) >= 100)
                 {
 
-
+                   
+                    E.Cast(sender);
                     
 
                 } 
