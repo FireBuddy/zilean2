@@ -111,7 +111,15 @@ namespace Zilean
                 E.IsReady())
                 
             {
-                E.Cast(Player.Instance);
+                if (args.End.Distance(Player.Instance.Position) >= 100)
+                {
+
+                    Chat.Print("GapCloser:" +args.SData.Name);
+                    Q.Cast(sender);
+                    return;
+
+                } 
+                
             }
         }
         static void Flee1()
