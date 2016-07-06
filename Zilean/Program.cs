@@ -151,13 +151,22 @@ namespace Zilean
 
 
                 }
-                if (args.End.Distance(Player.Instance.Position) >= 100)
+                if (args.End.Distance(Player.Instance.Position) >= 100)checkbox
                 {
-                    if (args.Slot)
+                    if (args.Slot == SpellSlot.E && miscMenu["Onprocess.Q"].Cast<CheckBox>().CurrentValue)
                     {
-                    Chat.Print("Not Receiving damage:" +args.SData.Name);
-                    Q.Cast(sender.ServerPosition);
-                    return;
+                        
+                        if (miscMenu["End.Q"].Cast<CheckBox>().CurrentValue)
+                            {
+                                Chat.Print("End Cast:" +args.SData.Name);
+                                Q.Cast(sender.ServerPosition);
+                            }
+                        else 
+                                                        {
+                            {
+                                Chat.Print("Pos Cast:" +args.SData.Name);
+                                Q.Cast(sender.ServerPosition);
+                            }
                     }
 
                 } 
