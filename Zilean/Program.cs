@@ -64,6 +64,14 @@ namespace Zilean
             clearMenu.Add("Clear.W", new CheckBox("Use W"));
             miscMenu = Menu.AddSubMenu("Misc", "Misc");
             miscMenu.Add("AutoR",  new CheckBox("Auto Ult"));
+            miscMenu.Add("Onprocess.Q", new CheckBox("Use when Q"));
+            miscMenu.Add("End.Q", new CheckBox("End Q"));
+            miscMenu.Add("Onprocess.W", new CheckBox("Use when Q"));
+            miscMenu.Add("End.W", new CheckBox("End W"));
+            miscMenu.Add("Onprocess.E", new CheckBox("Use when E"));
+            miscMenu.Add("End.E", new CheckBox("End E"));
+            miscMenu.Add("Onprocess.R", new CheckBox("Use when R"));
+            miscMenu.Add("End.R", new CheckBox("End R"));
         }
 
         static void Game_OnUpdate(EventArgs args)
@@ -145,10 +153,12 @@ namespace Zilean
                 }
                 if (args.End.Distance(Player.Instance.Position) >= 100)
                 {
-
+                    if (args.Slot)
+                    {
                     Chat.Print("Not Receiving damage:" +args.SData.Name);
                     Q.Cast(sender.ServerPosition);
                     return;
+                    }
 
                 } 
             } 
