@@ -179,10 +179,12 @@ namespace Zilean
                 {
                  var Minions = EntityManager.MinionsAndMonsters.GetLaneMinions(EntityManager.UnitTeam.Enemy,sender.ServerPosition, 110);
                  foreach (var Minion in Minions)
-                 if(Player.Instance.Distance(Minion.ServerPosition) <= 110 )
+                 if(Player.Instance.Distance(Minion.ServerPosition) <= 110)
                  {
                     
-                   // Q.Cast(Minion.ServerPosition);
+                   Q.Cast(Minion.ServerPosition);
+                   W.Cast(Player.Instance);
+                   Core.DelayAction(delegate { Q.Cast(Minion.ServerPosition); },Q.CastDelay +  Game.Ping); 
                  }
 
                 }
