@@ -169,6 +169,7 @@ namespace Zilean
                 
                 
                 {
+                 Chat.Print("Basic Attack:"+args.SData.Name);
                  Q.Cast(CurrentTarget.ServerPosition);
                 }
 
