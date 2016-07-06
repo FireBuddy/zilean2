@@ -133,21 +133,21 @@ namespace Zilean
             {
                 if (args.End.Distance(Player.Instance.Position) <= 100)
                 {
-                   Chat.Print("Receiving damage"+args.SData.Name);
-                    E.Cast(Player.Instance);
+                   Chat.Print("Receiving damage:"+args.SData.Name);
+                    E.Cast(Player);
 
 
                 }
                 if (args.End.Distance(Player.Instance.Position) >= 100)
                 {
 
-                    Chat.Print("Not Receiving damage" +args.SData.Name);
+                    Chat.Print("Not Receiving damage:" +args.SData.Name);
                     Q.Cast(sender.ServerPosition);
 
                 }                
                 if (args.Target != null)
                 {
-                    Chat.Print("targetspell"+args.SData.Name);
+                    Chat.Print("targetspell:"+args.SData.Name);
                     Q.Cast(sender.ServerPosition);
                     
 
