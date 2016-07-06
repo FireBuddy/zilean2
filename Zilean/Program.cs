@@ -54,6 +54,7 @@ namespace Zilean
             comboMenu.Add("Combo.Q", new CheckBox("Use Q"));
             comboMenu.Add("Combo.E", new CheckBox("Use E"));
             comboMenu.Add("Combo.W", new CheckBox("Use W"));
+            comboMenu.Add("Combo Minion", new KeyBind("Minion Combo", false, KeyBind.BindTypes.HoldActive, 'Z'));
             harassMenu = Menu.AddSubMenu("Harass", "Harass");
             harassMenu.Add("Harass.Q", new CheckBox("Use Q"));
             harassMenu.Add("Harass.E", new CheckBox("Use E"));
@@ -99,6 +100,7 @@ namespace Zilean
             {
                  Flee1();
             }
+
         }
         
         private static void OnGapCloser(Obj_AI_Base sender, Gapcloser.GapcloserEventArgs args)
@@ -167,20 +169,20 @@ namespace Zilean
                 
                 
                 {
-                 Q.Cast(CurrentTarget.ServerPosition + 20);
+                 Q.Cast(CurrentTarget.ServerPosition);
                 }
 
             }
             CurrentTarget = TargetSelector.GetTarget(Q.Range + 110, DamageType.Magical);
-            if (sender == CurrentTarget && !sender.IsDashing() && sender.Type == GameObjectType.AIHeroClient && sender.IsValidTarget(Q.Range + 150) && Q.IsReady() && W.IsReady() && sender.IsEnemy)
+            if (comboMenu["Combo Minion"].Cast<KeyBind>().CurrentValue && sender == CurrentTarget && !sender.IsDashing() && sender.Type == GameObjectType.AIHeroClient && sender.IsValidTarget(Q.Range + 150) && Q.IsReady() && W.IsReady() && sender.IsEnemy)
             {
                 {
                  var Minions = EntityManager.MinionsAndMonsters.GetLaneMinions(EntityManager.UnitTeam.Enemy,sender.ServerPosition, 110);
                  foreach (var Minion in Minions)
-                 if(Player.Instance.Distance(Minion.ServerPosition) <= 110)
+                 if(Player.Instance.Distance(Minion.ServerPosition) <= 110 )
                  {
                     
-                    Q.Cast(Minion.ServerPosition);
+                   // Q.Cast(Minion.ServerPosition);
                  }
 
                 }
