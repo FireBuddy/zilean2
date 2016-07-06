@@ -153,7 +153,7 @@ namespace Zilean
                 }
                 if (args.End.Distance(Player.Instance.Position) >= 100)checkbox
                 {
-                    if (args.Slot == SpellSlot.E && miscMenu["Onprocess.Q"].Cast<CheckBox>().CurrentValue)
+                    if (args.Slot == SpellSlot.Q && miscMenu["Onprocess.Q"].Cast<CheckBox>().CurrentValue)
                     {
                         
                         if (miscMenu["End.Q"].Cast<CheckBox>().CurrentValue)
@@ -162,7 +162,7 @@ namespace Zilean
                                 Q.Cast(sender.ServerPosition);
                             }
                         else 
-                                                        {
+                                                        
                             {
                                 Chat.Print("Pos Cast:" +args.SData.Name);
                                 Q.Cast(sender.ServerPosition);
