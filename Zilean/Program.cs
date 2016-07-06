@@ -41,6 +41,7 @@ namespace Zilean
             Obj_AI_Base.OnSpellCast += Obj_AI_Base_OnDoCast;
             GameObject.OnDelete += MissileClient_OnDelete;
             Obj_AI_Base.OnProcessSpellCast += Obj_AI_Base_OnProcessSpellCast;
+            Obj_AI_Base.OnProcessSpellCast += Obj_AI_Base_OnProcessSpellCast2;
             Orbwalker.OnPreAttack += BeforeAttack;
             Spellbook.OnStopCast += SpellbookOnStopCast;
             if (Player.Instance.ChampionName != "Zilean") return;
@@ -118,6 +119,40 @@ namespace Zilean
              E.Cast(Player.Instance);
          }
         }
+        private static void Obj_AI_Base_OnProcessSpellCast2(Obj_AI_Base sender, GameObjectProcessSpellCastEventArgs args)
+        {
+            
+            if (sender == null || !Orbwalker.ActiveModesFlags.HasFlag(Orbwalker.ActiveModes.Harass))
+            {
+               return;
+            }
+            CurrentTarget = TargetSelector.GetTarget(Q.Range, DamageType.Magical);
+            if (Q.IsReady() && sender.IsValidTarget(865) && !sender.IsInvulnerable && args.Target != CurrentTarget && !sender.IsDashing() && sender == CurrentTarget && !sender.IsDashing())
+            {
+                
+                if (args.End.Distance(Player.Instance.Position) <= 100)
+                {
+                   Chat.Print("Receiving damage"+args.SData.Name);
+                   E.Cast(Player);
+
+
+                 }
+                if (args.End.Distance(Player.Instance.Position) >= 100)
+                {
+
+                    Chat.Print("Not Receiving damage" +args.SData.Name);
+                    Q.Cast(sender.ServerPosition);
+
+                }                
+                if (args.Target != null)
+                {
+                    Chat.Print("targetspell"+args.SData.Name);
+                    Q.Cast(sender.ServerPosition);
+
+                }
+
+            } 
+}
         private static void Obj_AI_Base_OnBasicAttack(Obj_AI_Base sender, GameObjectProcessSpellCastEventArgs args)
         {
             var flags = Orbwalker.ActiveModesFlags;
