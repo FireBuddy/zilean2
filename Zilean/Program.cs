@@ -114,8 +114,7 @@ namespace Zilean
                 if (args.End.Distance(Player.Instance) >= 100)
                 {
 
-                    Chat.Print("GapCloser:" +args.SData.Name);
-                    E.Cast(sender);
+
                     
 
                 } 
