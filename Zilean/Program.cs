@@ -162,7 +162,7 @@ namespace Zilean
                         }
                         else 
                         {
-                            Chat.Print("Pos Cast:"+args.SData.Name);
+                            Chat.Print("End Cast:"+args.SData.Name);
                             Q.Cast(args.End);
                         }  
                     }
@@ -175,7 +175,7 @@ namespace Zilean
                         }
                         else 
                         {
-                            Chat.Print("Pos Cast:"+args.SData.Name);
+                            Chat.Print("End Cast:"+args.SData.Name);
                             Q.Cast(args.End);
                         }  
                     }
@@ -188,7 +188,7 @@ namespace Zilean
                         }
                         else 
                         {
-                            Chat.Print("Pos Cast:"+args.SData.Name);
+                            Chat.Print("End Cast:"+args.SData.Name);
                             Q.Cast(args.End);
                         }  
                     } 
@@ -201,7 +201,7 @@ namespace Zilean
                         }
                         else 
                         {
-                            Chat.Print("Pos Cast:"+args.SData.Name);
+                            Chat.Print("End Cast:"+args.SData.Name);
                             Q.Cast(args.End);
                         }  
                     }  
