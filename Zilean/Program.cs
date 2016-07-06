@@ -132,6 +132,7 @@ namespace Zilean
                 if (args.End.Distance(Player.Instance.Position) <= 100)
                 {
                    Chat.Print("Receiving damage"+args.SData.Name);
+                    E.Cast(Player.Instance);
 
 
                 }
