@@ -151,7 +151,7 @@ namespace Zilean
 
 
                 }
-                if (args.End.Distance(Player.Instance.Position) >= 100 %% args.Slot == SpellSlot.Q)
+                if (args.End.Distance(Player.Instance.Position) >= 100 && args.Slot == SpellSlot.Q)
                 {
 
                 } 
