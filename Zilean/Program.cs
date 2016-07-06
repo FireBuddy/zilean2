@@ -31,7 +31,7 @@ namespace Zilean
         static void Game_OnLoad (EventArgs args)
         {
             Gapcloser.OnGapcloser += OnGapCloser;
-            Q = new Spell.Skillshot(SpellSlot.Q, 900, SkillShotType.Circular,300, 2000, 150);
+            Q = new Spell.Skillshot(SpellSlot.Q, 900, SkillShotType.Circular,300, 1900, 130);
             Q.AllowedCollisionCount = int.MaxValue;
             W = new Spell.Active(SpellSlot.W);
             E = new Spell.Targeted(SpellSlot.E, 550);
