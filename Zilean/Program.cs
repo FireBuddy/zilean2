@@ -208,7 +208,7 @@ namespace Zilean
         private static void Obj_AI_Base_OnBasicAttack(Obj_AI_Base sender, GameObjectProcessSpellCastEventArgs args)
         {
             var flags = Orbwalker.ActiveModesFlags;
-            if (sender == null || (!flags.HasFlag(Orbwalker.ActiveModes.Harass)) || (sender.Hero == Champion.Yasuo && sender.Mana >= 75))
+            if (sender == null || (!flags.HasFlag(Orbwalker.ActiveModes.Harass)))
             {
                return;
             }
