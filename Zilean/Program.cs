@@ -64,7 +64,6 @@ namespace Zilean
             clearMenu.Add("Clear.W", new CheckBox("Use W"));
             miscMenu = Menu.AddSubMenu("Misc", "Misc");
             miscMenu.Add("AutoR",  new CheckBox("Auto Ult"));
-            miscMenu.Add("IsYasuo",  new CheckBox("IsYasuo"));
             miscMenuT = Menu.AddSubMenu("MiscT", "MiscT");
             foreach (var enemy in EntityManager.Heroes.Enemies.Where(a => a.Team != Player.Instance.Team))
             {
@@ -171,7 +170,7 @@ namespace Zilean
         private static void Obj_AI_Base_OnProcessSpellCast2(Obj_AI_Base sender, GameObjectProcessSpellCastEventArgs args)
         {
             CurrentTarget = TargetSelector.GetTarget(Q.Range + 300, DamageType.Magical);
-            if (CurrentTarget.Hero == Champion.Yasuo && sender == null || !Orbwalker.ActiveModesFlags.HasFlag(Orbwalker.ActiveModes.Harass) || (miscMenu["IsYasuo"].Cast<CheckBox>().CurrentValue && sender.Mana >= 75))
+            if (sender == null || !Orbwalker.ActiveModesFlags.HasFlag(Orbwalker.ActiveModes.Harass) || (CurrentTarget.Hero == Champion.Yasuo && sender.Mana >= 75))
             {
                return;
             }
@@ -208,9 +207,9 @@ namespace Zilean
         }
         private static void Obj_AI_Base_OnBasicAttack(Obj_AI_Base sender, GameObjectProcessSpellCastEventArgs args)
         {
-
+            CurrentTarget = TargetSelector.GetTarget(Q.Range, DamageType.Magical);
             var flags = Orbwalker.ActiveModesFlags;
-            if (sender == null || (!flags.HasFlag(Orbwalker.ActiveModes.Harass)) || (miscMenu["IsYasuo"].Cast<CheckBox>().CurrentValue && sender.Mana >= 75))
+            if (sender == null || (!flags.HasFlag(Orbwalker.ActiveModes.Harass)) || (CurrentTarget.Hero == Champion.Yasuo && sender.Mana >= 75))
             {
                return;
             }
