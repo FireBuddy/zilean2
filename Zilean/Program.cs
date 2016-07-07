@@ -170,7 +170,7 @@ namespace Zilean
         private static void Obj_AI_Base_OnProcessSpellCast2(Obj_AI_Base sender, GameObjectProcessSpellCastEventArgs args)
         {
             
-            if (sender == null || !Orbwalker.ActiveModesFlags.HasFlag(Orbwalker.ActiveModes.Harass) || sender.HasBuff("Resolve"))
+            if (sender == null || !Orbwalker.ActiveModesFlags.HasFlag(Orbwalker.ActiveModes.Harass) ||  (sender.Hero == Champion.Yasuo && sender.Mana >= 75))
             {
                return;
             }
