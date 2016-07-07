@@ -231,9 +231,9 @@ namespace Zilean
             if (comboMenu["Combo Minion"].Cast<KeyBind>().CurrentValue && sender == CurrentTarget && !sender.IsDashing() && sender.Type == GameObjectType.AIHeroClient && sender.IsValidTarget(Q.Range + 150) && Q.IsReady() && W.IsReady() && sender.IsEnemy)
             {
                 {
-                 var Minions = EntityManager.MinionsAndMonsters.GetLaneMinions(EntityManager.UnitTeam.Enemy,sender.ServerPosition, 110);
+                 var Minions = EntityManager.MinionsAndMonsters.GetLaneMinions(EntityManager.UnitTeam.Enemy,sender.ServerPosition, 150);
                  foreach (var Minion in Minions)
-                 if(Player.Instance.Distance(Minion.ServerPosition) <= 110)
+                 if(Player.Instance.Distance(Minion.ServerPosition) <= 150)
                  {
                     
                    Q.Cast(Minion.ServerPosition);
