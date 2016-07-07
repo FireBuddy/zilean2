@@ -185,7 +185,7 @@ namespace Zilean
                 }
                 if (args.End.Distance(Player.Instance.Position) >= 100 )
                 {
-                    if (args.Slot == SpellSlot.Q && miscMenu["Onprocess.Q"].Cast<CheckBox>().CurrentValue)
+                    if (args.Slot == SpellSlot.Q && miscMenu[args.SData.Name].Cast<CheckBox>().CurrentValue)
                     {
                         if (!miscMenu["End.Q"].Cast<CheckBox>().CurrentValue)
                         {
@@ -198,7 +198,7 @@ namespace Zilean
                             Q.Cast(args.End);
                         }  
                     }
-                    if (args.Slot == SpellSlot.W && miscMenu["Onprocess.W"].Cast<CheckBox>().CurrentValue)
+                    if (args.Slot == SpellSlot.W && miscMenu[args.SData.Name].Cast<CheckBox>().CurrentValue)
                     {
                         if (!miscMenu["End.W"].Cast<CheckBox>().CurrentValue)
                         {
@@ -211,7 +211,7 @@ namespace Zilean
                             Q.Cast(args.End);
                         }  
                     }
-                    if (args.Slot == SpellSlot.E && miscMenu["Onprocess.E"].Cast<CheckBox>().CurrentValue)
+                    if (args.Slot == SpellSlot.E && miscMenu[args.SData.Name].Cast<CheckBox>().CurrentValue)
                     {
                         if (!miscMenu["End.E"].Cast<CheckBox>().CurrentValue)
                         {
@@ -224,7 +224,7 @@ namespace Zilean
                             Q.Cast(args.End);
                         }  
                     } 
-                    if (args.Slot == SpellSlot.R && miscMenu["Onprocess.R"].Cast<CheckBox>().CurrentValue)
+                    if (args.Slot == SpellSlot.R && miscMenu[args.SData.Name].Cast<CheckBox>().CurrentValue)
                     {
                         if (!miscMenu["End.R"].Cast<CheckBox>().CurrentValue)
                         {
