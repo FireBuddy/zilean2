@@ -64,7 +64,14 @@ namespace Zilean
             clearMenu.Add("Clear.W", new CheckBox("Use W"));
             miscMenu = Menu.AddSubMenu("Misc", "Misc");
             miscMenu.Add("AutoR",  new CheckBox("Auto Ult"));
-           
+            miscMenu.Add("Onprocess.Q", new CheckBox("Use when Q"));
+            miscMenu.Add("End.Q", new CheckBox("End Q"));
+            miscMenu.Add("Onprocess.W", new CheckBox("Use when W"));
+            miscMenu.Add("End.W", new CheckBox("End W"));
+            miscMenu.Add("Onprocess.E", new CheckBox("Use when E"));
+            miscMenu.Add("End.E", new CheckBox("End E"));
+            miscMenu.Add("Onprocess.R", new CheckBox("Use when R"));
+            miscMenu.Add("End.R", new CheckBox("End R"));
             foreach (var enemy in EntityManager.Heroes.Enemies.Where(a => a.Team != Player.Instance.Team))
             {
                 foreach (
@@ -78,27 +85,21 @@ namespace Zilean
                     {
                         miscMenu.Add(spell.SData.Name,
                             new CheckBox(enemy.ChampionName + " - Q - " + spell.Name, false));
-                        miscMenu.Add(spell.SData.Name,
+                        miscMenu.Add(spell.SData.Name + End,
                             new CheckBox(enemy.ChampionName + " - Q - " + spell.Name, false));
                     }
                     else if (spell.Slot == SpellSlot.W)
                     {
                         miscMenu.Add(spell.SData.Name,
                             new CheckBox(enemy.ChampionName + " - W - " + spell.Name, false));
-                        miscMenu.Add(spell.SData.Name,
-                            new CheckBox(enemy.ChampionName + " - W - " + spell.Name, false));                            
                     }
                     else if (spell.Slot == SpellSlot.E)
                     {
                         miscMenu.Add(spell.SData.Name,
                             new CheckBox(enemy.ChampionName + " - E - " + spell.Name, false));
-                        miscMenuT.Add(spell.SData.Name,
-                            new CheckBox(enemy.ChampionName + " - E - " + spell.Name, false));
                     }
                     else if (spell.Slot == SpellSlot.R)
                     {
-                        miscMenu.Add(spell.SData.Name,
-                            new CheckBox(enemy.ChampionName + " - R - " + spell.Name, false));
                         miscMenu.Add(spell.SData.Name,
                             new CheckBox(enemy.ChampionName + " - R - " + spell.Name, false));
                     }
