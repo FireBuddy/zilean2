@@ -72,8 +72,7 @@ namespace Zilean
             miscMenu.Add("End.E", new CheckBox("End E"));
             miscMenu.Add("Onprocess.R", new CheckBox("Use when R"));
             miscMenu.Add("End.R", new CheckBox("End R"));
-            miscMenu.AddGroupLabel("Auto E - Spell Settings", "misc.grouplabel.addonmenu");
-            miscMenu.AddSeparator();
+
 
 
         static void Game_OnUpdate(EventArgs args)
