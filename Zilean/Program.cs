@@ -15,7 +15,7 @@ namespace Zilean
     class Program
     {
         static Menu Menu;
-        static Menu comboMenu, harassMenu, clearMenu,miscMenu;miscMenuT;
+        static Menu comboMenu, harassMenu, clearMenu,miscMenu,miscMenuT;
         static Spell.Targeted E, R;
         public static AIHeroClient CurrentTarget;
         static Spell.Skillshot Q;
