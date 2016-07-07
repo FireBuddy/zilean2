@@ -64,7 +64,7 @@ namespace Zilean
             clearMenu.Add("Clear.W", new CheckBox("Use W"));
             miscMenu = Menu.AddSubMenu("Misc", "Misc");
             miscMenu.Add("AutoR",  new CheckBox("Auto Ult"));
-            miscMenuT = Menu.AddSubMenu("MiscT", "MiscT");
+           
             foreach (var enemy in EntityManager.Heroes.Enemies.Where(a => a.Team != Player.Instance.Team))
             {
                 foreach (
@@ -78,14 +78,14 @@ namespace Zilean
                     {
                         miscMenu.Add(spell.SData.Name,
                             new CheckBox(enemy.ChampionName + " - Q - " + spell.Name, false));
-                        miscMenuT.Add(spell.SData.Name,
+                        miscMenu.Add(spell.SData.Name,
                             new CheckBox(enemy.ChampionName + " - Q - " + spell.Name, false));
                     }
                     else if (spell.Slot == SpellSlot.W)
                     {
                         miscMenu.Add(spell.SData.Name,
                             new CheckBox(enemy.ChampionName + " - W - " + spell.Name, false));
-                        miscMenuT.Add(spell.SData.Name,
+                        miscMenu.Add(spell.SData.Name,
                             new CheckBox(enemy.ChampionName + " - W - " + spell.Name, false));                            
                     }
                     else if (spell.Slot == SpellSlot.E)
@@ -99,7 +99,7 @@ namespace Zilean
                     {
                         miscMenu.Add(spell.SData.Name,
                             new CheckBox(enemy.ChampionName + " - R - " + spell.Name, false));
-                        miscMenuT.Add(spell.SData.Name,
+                        miscMenu.Add(spell.SData.Name,
                             new CheckBox(enemy.ChampionName + " - R - " + spell.Name, false));
                     }
                 }
@@ -188,7 +188,7 @@ namespace Zilean
                 {
                     if (args.Slot == SpellSlot.Q && miscMenu[args.SData.Name].Cast<CheckBox>().CurrentValue)
                     {
-                        if (!miscMenuT[spell.SData.Name].Cast<CheckBox>().CurrentValue)
+                        if (!miscMenu[spell.SData.Name].Cast<CheckBox>().CurrentValue)
                         {
                             Chat.Print("Pos Cast:"+args.SData.Name);
                             Q.Cast(sender.ServerPosition);
