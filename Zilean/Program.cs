@@ -77,28 +77,28 @@ namespace Zilean
                     {
                         miscMenu.Add(spell.SData.Name,
                             new CheckBox(enemy.ChampionName + " - Q - " + spell.Name, false));
-                        miscMenu.Add(spell.SData.Name + "end",
+                        miscMenu.Add(spell.SData.Name +"end",
                             new CheckBox(enemy.ChampionName + " - Q - " + spell.Name, false));
                     }
                     else if (spell.Slot == SpellSlot.W)
                     {
                         miscMenu.Add(spell.SData.Name,
                             new CheckBox(enemy.ChampionName + " - W - " + spell.Name, false));
-                        miscMenu.Add(spell.SData.Name + "end"',
+                        miscMenu.Add(spell.SData.Name +"end"',
                             new CheckBox(enemy.ChampionName + " - W - " + spell.Name, false));
                     }
                     else if (spell.Slot == SpellSlot.E)
                     {
                         miscMenu.Add(spell.SData.Name,
                             new CheckBox(enemy.ChampionName + " - E - " + spell.Name, false));
-                        miscMenu.Add(spell.SData.Name + "end",
+                        miscMenu.Add(spell.SData.Name +"end",
                             new CheckBox(enemy.ChampionName + " - E - " + spell.Name, false));                            
                     }
                     else if (spell.Slot == SpellSlot.R)
                     {
                         miscMenu.Add(spell.SData.Name,
                             new CheckBox(enemy.ChampionName + " - R - " + spell.Name, false));
-                        miscMenu.Add(spell.SData.Name + "End",
+                        miscMenu.Add(spell.SData.Name +"End",
                             new CheckBox(enemy.ChampionName + " - R - " + spell.Name, false));
                     }
                 }
@@ -187,7 +187,7 @@ namespace Zilean
                 {
                     if (miscMenu[args.SData.Name].Cast<CheckBox>().CurrentValue)
                     {
-                        if (!miscMenu[[args.SData.Name + "End"].Cast<CheckBox>().CurrentValue)
+                        if (!miscMenu[[args.SData.Name +"End"].Cast<CheckBox>().CurrentValue)
                         {
                             Chat.Print("Pos Cast:"+args.SData.Name);
                             Q.Cast(sender.ServerPosition);
