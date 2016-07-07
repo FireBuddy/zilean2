@@ -64,14 +64,6 @@ namespace Zilean
             clearMenu.Add("Clear.W", new CheckBox("Use W"));
             miscMenu = Menu.AddSubMenu("Misc", "Misc");
             miscMenu.Add("AutoR",  new CheckBox("Auto Ult"));
-            miscMenu.Add("Onprocess.Q", new CheckBox("Use when Q"));
-            miscMenu.Add("End.Q", new CheckBox("End Q"));
-            miscMenu.Add("Onprocess.W", new CheckBox("Use when W"));
-            miscMenu.Add("End.W", new CheckBox("End W"));
-            miscMenu.Add("Onprocess.E", new CheckBox("Use when E"));
-            miscMenu.Add("End.E", new CheckBox("End E"));
-            miscMenu.Add("Onprocess.R", new CheckBox("Use when R"));
-            miscMenu.Add("End.R", new CheckBox("End R"));
             miscMenuT = Menu.AddSubMenu("MiscT", "MiscT");
             foreach (var enemy in EntityManager.Heroes.Enemies.Where(a => a.Team != Player.Instance.Team))
             {
@@ -86,22 +78,28 @@ namespace Zilean
                     {
                         miscMenu.Add(spell.SData.Name,
                             new CheckBox(enemy.ChampionName + " - Q - " + spell.Name, false));
-                        miscMenu.Add(spell.SData.Name + "end",
+                        miscMenuT.Add(spell.SData.Name,
                             new CheckBox(enemy.ChampionName + " - Q - " + spell.Name, false));
                     }
                     else if (spell.Slot == SpellSlot.W)
                     {
                         miscMenu.Add(spell.SData.Name,
                             new CheckBox(enemy.ChampionName + " - W - " + spell.Name, false));
+                        miscMenuT.Add(spell.SData.Name,
+                            new CheckBox(enemy.ChampionName + " - W - " + spell.Name, false));                            
                     }
                     else if (spell.Slot == SpellSlot.E)
                     {
                         miscMenu.Add(spell.SData.Name,
                             new CheckBox(enemy.ChampionName + " - E - " + spell.Name, false));
+                        miscMenuT.Add(spell.SData.Name,
+                            new CheckBox(enemy.ChampionName + " - E - " + spell.Name, false));
                     }
                     else if (spell.Slot == SpellSlot.R)
                     {
                         miscMenu.Add(spell.SData.Name,
+                            new CheckBox(enemy.ChampionName + " - R - " + spell.Name, false));
+                        miscMenuT.Add(spell.SData.Name,
                             new CheckBox(enemy.ChampionName + " - R - " + spell.Name, false));
                     }
                 }
@@ -189,9 +187,9 @@ namespace Zilean
                 }
                 if (args.End.Distance(Player.Instance.Position) >= 100 )
                 {
-                    if (args.Slot == SpellSlot.Q && miscMenu[args.SData.Name].Cast<CheckBox>().CurrentValue)
+                    if (miscMenu[args.SData.Name].Cast<CheckBox>().CurrentValue)
                     {
-                        if (!miscMenu["End.W"].Cast<CheckBox>().CurrentValue)
+                        if (!miscMenuT[args.SData.Name].Cast<CheckBox>().CurrentValue)
                         {
                             Chat.Print("Pos Cast:"+args.SData.Name);
                             Q.Cast(sender.ServerPosition);
@@ -202,45 +200,8 @@ namespace Zilean
                             Q.Cast(args.End);
                         }  
                     }
-                    if (args.Slot == SpellSlot.W && miscMenu[args.SData.Name].Cast<CheckBox>().CurrentValue)
-                    {
-                        if (!miscMenu["End.W"].Cast<CheckBox>().CurrentValue)
-                        {
-                            Chat.Print("Pos Cast:"+args.SData.Name);
-                            Q.Cast(sender.ServerPosition);
-                        }
-                        else 
-                        {
-                            Chat.Print("End Cast:"+args.SData.Name);
-                            Q.Cast(args.End);
-                        }  
-                    }
-                    if (args.Slot == SpellSlot.E && miscMenu[args.SData.Name].Cast<CheckBox>().CurrentValue)
-                    {
-                        if (!miscMenu["End.E"].Cast<CheckBox>().CurrentValue)
-                        {
-                            Chat.Print("Pos Cast:"+args.SData.Name);
-                            Q.Cast(sender.ServerPosition);
-                        }
-                        else 
-                        {
-                            Chat.Print("End Cast:"+args.SData.Name);
-                            Q.Cast(args.End);
-                        }  
-                    } 
-                    if (args.Slot == SpellSlot.R && miscMenu[args.SData.Name].Cast<CheckBox>().CurrentValue)
-                    {
-                        if (!miscMenu["End.R"].Cast<CheckBox>().CurrentValue)
-                        {
-                            Chat.Print("Pos Cast:"+args.SData.Name);
-                            Q.Cast(sender.ServerPosition);
-                        }
-                        else 
-                        {
-                            Chat.Print("End Cast:"+args.SData.Name);
-                            Q.Cast(args.End);
-                        }  
-                    }  
+
+
                 } 
 
             } 
