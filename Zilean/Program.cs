@@ -72,7 +72,7 @@ namespace Zilean
             miscMenu.Add("End.E", new CheckBox("End E"));
             miscMenu.Add("Onprocess.R", new CheckBox("Use when R"));
             miscMenu.Add("End.R", new CheckBox("End R"));
-            miscMenuT = Menu.AddSubMenu("MiscT", "MiscT");
+            
             foreach (var enemy in EntityManager.Heroes.Enemies.Where(a => a.Team != Player.Instance.Team))
             {
                 foreach (
@@ -105,7 +105,8 @@ namespace Zilean
                             new CheckBox(enemy.ChampionName + " - R - " + spell.Name, false));
                     }
                 }
-            }            
+            }
+            miscMenuT = Menu.AddSubMenu("MiscT", "MiscT");
 
 
         }
