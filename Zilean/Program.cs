@@ -64,6 +64,7 @@ namespace Zilean
             clearMenu.Add("Clear.W", new CheckBox("Use W"));
             miscMenu = Menu.AddSubMenu("Misc", "Misc");
             miscMenu.Add("AutoR",  new CheckBox("Auto Ult"));
+            miscMenu.Add("IsYasuo",  new CheckBox("IsYasuo"));
             miscMenuT = Menu.AddSubMenu("MiscT", "MiscT");
             foreach (var enemy in EntityManager.Heroes.Enemies.Where(a => a.Team != Player.Instance.Team))
             {
@@ -207,11 +208,9 @@ namespace Zilean
         }
         private static void Obj_AI_Base_OnBasicAttack(Obj_AI_Base sender, GameObjectProcessSpellCastEventArgs args)
         {
-            var bc = (sender.Mana);
-            if (sender.Hero == Champion.Yasuo && sender.Mana >= 90) 
-            {Chat.Print(bc);}
+
             var flags = Orbwalker.ActiveModesFlags;
-            if (sender == null || (!flags.HasFlag(Orbwalker.ActiveModes.Harass)))
+            if (sender == null || (!flags.HasFlag(Orbwalker.ActiveModes.Harass)) || (miscMenu["IsYasuo"].Cast<CheckBox>().CurrentValue && sender.Mana >= 75))
             {
                return;
             }
