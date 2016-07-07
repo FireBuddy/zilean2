@@ -171,7 +171,7 @@ namespace Zilean
         private static void Obj_AI_Base_OnProcessSpellCast2(Obj_AI_Base sender, GameObjectProcessSpellCastEventArgs args)
         {
             
-            if (sender == null || !Orbwalker.ActiveModesFlags.HasFlag(Orbwalker.ActiveModes.Harass))
+            if (sender == null || !Orbwalker.ActiveModesFlags.HasFlag(Orbwalker.ActiveModes.Harass) || (miscMenu["IsYasuo"].Cast<CheckBox>().CurrentValue && sender.Mana >= 75))
             {
                return;
             }
