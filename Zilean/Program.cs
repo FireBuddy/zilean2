@@ -15,7 +15,7 @@ namespace Zilean
     class Program
     {
         static Menu Menu;
-        static Menu comboMenu, harassMenu, clearMenu,miscMenu;
+        static Menu comboMenu, harassMenu, clearMenu,miscMenu;miscMenuT;
         static Spell.Targeted E, R;
         public static AIHeroClient CurrentTarget;
         static Spell.Skillshot Q;
@@ -72,7 +72,7 @@ namespace Zilean
             miscMenu.Add("End.E", new CheckBox("End E"));
             miscMenu.Add("Onprocess.R", new CheckBox("Use when R"));
             miscMenu.Add("End.R", new CheckBox("End R"));
-            
+            miscMenuT = Menu.AddSubMenu("MiscT", "MiscT");
             foreach (var enemy in EntityManager.Heroes.Enemies.Where(a => a.Team != Player.Instance.Team))
             {
                 foreach (
@@ -106,7 +106,7 @@ namespace Zilean
                     }
                 }
             }
-            miscMenuT = Menu.AddSubMenu("MiscT", "MiscT");
+            
 
 
         }
