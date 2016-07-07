@@ -179,7 +179,7 @@ namespace Zilean
             {
                 if (args.End.Distance(Player.Instance.Position) <= 100)
                 {
-                   if(!args.SData.TargettingType == SpellDataTargetType.Unit || !args.SData.TargettingType == SpellDataTargetType.SelfAndUnit)
+                   if(!args.SData.TargettingType == SpellDataTargetType.Unit)
                    {
                         Chat.Print("Dodging damage:"+args.SData.Name);
                         E.Cast(Player.Instance);
@@ -188,7 +188,7 @@ namespace Zilean
 
 
                 }
-                if (args.End.Distance(Player.Instance.Position) >= 100 || args.SData.TargettingType == SpellDataTargetType.Unit || args.SData.TargettingType == SpellDataTargetType.SelfAndUnit)
+                if (args.End.Distance(Player.Instance.Position) >= 100)
                 {
                     if (miscMenu[args.SData.Name].Cast<CheckBox>().CurrentValue)
                     {
