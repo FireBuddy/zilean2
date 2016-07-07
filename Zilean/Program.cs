@@ -64,6 +64,14 @@ namespace Zilean
             clearMenu.Add("Clear.W", new CheckBox("Use W"));
             miscMenu = Menu.AddSubMenu("Misc", "Misc");
             miscMenu.Add("AutoR",  new CheckBox("Auto Ult"));
+            miscMenu.Add("Onprocess.Q", new CheckBox("Use when Q"));
+            miscMenu.Add("End.Q", new CheckBox("End Q"));
+            miscMenu.Add("Onprocess.W", new CheckBox("Use when W"));
+            miscMenu.Add("End.W", new CheckBox("End W"));
+            miscMenu.Add("Onprocess.E", new CheckBox("Use when E"));
+            miscMenu.Add("End.E", new CheckBox("End E"));
+            miscMenu.Add("Onprocess.R", new CheckBox("Use when R"));
+            miscMenu.Add("End.R", new CheckBox("End R"));
             foreach (var enemy in EntityManager.Heroes.Enemies.Where(a => a.Team != Player.Instance.Team))
             {
                 foreach (
@@ -77,7 +85,7 @@ namespace Zilean
                     {
                         miscMenu.Add(spell.SData.Name,
                             new CheckBox(enemy.ChampionName + " - Q - " + spell.Name, false));
-                        miscMenu.Add(spell.SData.Name,
+                        miscMenu.Add((spell.SData.Name + "End"),
                             new CheckBox(enemy.ChampionName + " - Q - " + spell.Name, false));
                     }
                     else if (spell.Slot == SpellSlot.W)
@@ -181,7 +189,7 @@ namespace Zilean
                 {
                     if (args.Slot == SpellSlot.Q && miscMenu[args.SData.Name].Cast<CheckBox>().CurrentValue)
                     {
-                        if (!miscMenu[spell.SData.Name].Cast<CheckBox>().CurrentValue)
+                        if (!miscMenu[spell.SData.Name + "End"].Cast<CheckBox>().CurrentValue)
                         {
                             Chat.Print("Pos Cast:"+args.SData.Name);
                             Q.Cast(sender.ServerPosition);
