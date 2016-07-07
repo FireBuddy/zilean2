@@ -84,7 +84,7 @@ namespace Zilean
                     {
                         miscMenu.Add(spell.SData.Name,
                             new CheckBox(enemy.ChampionName + " - W - " + spell.Name, false));
-                        miscMenu.Add(spell.SData.Name +"end"',
+                        miscMenu.Add(spell.SData.Name +"end",
                             new CheckBox(enemy.ChampionName + " - W - " + spell.Name, false));
                     }
                     else if (spell.Slot == SpellSlot.E)
