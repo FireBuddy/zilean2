@@ -189,7 +189,7 @@ namespace Zilean
                 {
                     if (args.Slot == SpellSlot.Q && miscMenu[args.SData.Name].Cast<CheckBox>().CurrentValue)
                     {
-                        if (!miscMenu[spell.SData.Name + End].Cast<CheckBox>().CurrentValue)
+                        if (!miscMenu[spell.SData.Name].Cast<CheckBox>().CurrentValue)
                         {
                             Chat.Print("Pos Cast:"+args.SData.Name);
                             Q.Cast(sender.ServerPosition);
