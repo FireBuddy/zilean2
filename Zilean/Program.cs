@@ -85,22 +85,22 @@ namespace Zilean
                 {
                     if (spell.Slot == SpellSlot.Q)
                     {
-                        MainMenu.Misc.Add(spell.SData.Name,
+                         miscMenu.Add(spell.SData.Name,
                             new CheckBox(enemy.ChampionName + " - Q - " + spell.Name, false));
                     }
                     else if (spell.Slot == SpellSlot.W)
                     {
-                        MainMenu.Misc.Add(spell.SData.Name,
+                        miscMenu.Add(spell.SData.Name,
                             new CheckBox(enemy.ChampionName + " - W - " + spell.Name, false));
                     }
                     else if (spell.Slot == SpellSlot.E)
                     {
-                        MainMenu.Misc.Add(spell.SData.Name,
+                         miscMenu.Add(spell.SData.Name,
                             new CheckBox(enemy.ChampionName + " - E - " + spell.Name, false));
                     }
                     else if (spell.Slot == SpellSlot.R)
                     {
-                        MainMenu.Misc.Add(spell.SData.Name,
+                         miscMenu.Add(spell.SData.Name,
                             new CheckBox(enemy.ChampionName + " - R - " + spell.Name, false));
                     }
                 }
