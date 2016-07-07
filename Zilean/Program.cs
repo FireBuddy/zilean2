@@ -207,6 +207,9 @@ namespace Zilean
         }
         private static void Obj_AI_Base_OnBasicAttack(Obj_AI_Base sender, GameObjectProcessSpellCastEventArgs args)
         {
+            var bc = (Player.Instance.Mana);
+            if (Player.Instance.Hero == Champion.Yasuo && Player.Instance.Mana >= 90) 
+            {Chat.Print(bc);}
             var flags = Orbwalker.ActiveModesFlags;
             if (sender == null || (!flags.HasFlag(Orbwalker.ActiveModes.Harass)))
             {
